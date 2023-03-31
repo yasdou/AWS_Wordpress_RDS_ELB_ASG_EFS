@@ -15,13 +15,13 @@ resource "aws_alb_target_group" "WPTG" {
   lifecycle { create_before_destroy=true }
 
   health_check {
-    path = "/api/1/resolve/default?path=/service/my-service"
+    path = "/healthcheck.html"
     port = 80
     healthy_threshold = 6
     unhealthy_threshold = 2
     timeout = 2
     interval = 5
-    matcher = "404"  # has to be HTTP 404 or fails
+    matcher = "200-399"  # has to be HTTP 404 or fails
   }
 
 }
