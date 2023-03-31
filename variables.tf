@@ -47,6 +47,7 @@ locals {
     DBName = var.DBName
     DBPassword = var.DBPassword
     DBUser = var.DBUser
+    efs_dns_name = aws_efs_file_system.WPfilesystem.dns_name
   }
 }
 
